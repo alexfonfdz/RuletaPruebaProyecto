@@ -1,0 +1,188 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.circle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+svg {
+  margin-top: 20px;
+}
+
+#dataInput {
+  margin-top: 20px;
+}
+
+#namesTextarea {
+  margin-top: 20px;
+  width: 200px;
+  height: 100px;
+}
+
+#orderListItems {
+    max-height: 70px; /* Cambia esto según la altura deseada */
+    overflow-y: auto;
+  }
+
+#saveButton {
+  margin-top: 10px;
+}
+
+.tooltip {
+  position: relative;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px;
+  pointer-events: none;
+  display: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  background-color: #cccccc;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #4caf50;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+button:focus-visible:active {
+  outline: none;
+}
+
+.file-input {
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.file-input input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0); /* IE fix */
+}
+
+.file-input button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.file-input button:hover {
+  background-color: #45a049;
+}
+
+.file-input button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.file-input button:disabled:hover {
+  background-color: #cccccc;
+}

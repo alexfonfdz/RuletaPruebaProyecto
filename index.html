@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./assets/icon/ruleta.png" type="image/x-icon" />
+    <title>La ruleta de ISI</title>
+  </head>
+  <body>
+    <h1>La Ruleta ISI</h1>
+    <div id="principal">
+    <div class="container">
+      <div class="circle-container">
+        <svg
+          id="circle"
+          width="400"
+          height="400"
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            fill="none"
+            stroke="black"
+            stroke-width="2"
+          />
+          <g id="divisions"></g>
+          <line
+            x1="100"
+            y1="50"
+            x2="100"
+            y2="10"
+            stroke="#000"
+            stroke-width="2"
+            marker-end="url(#arrowhead)"
+          />
+        </svg>
+        <button onclick="rotateCircle()">Girar Círculo</button>
+      </div>
+
+      <div class="list-container">
+        <div class="tooltip" id="tooltip"></div>
+        <div class="file-input">
+          <input
+            placeholder="Selecciona Archivo"
+            type="file"
+            id="dataInput"
+            accept=".txt"
+          />
+          <button>Seleccionar Archivo</button>
+        </div>
+        <textarea placeholder="Nombres" id="namesTextarea" readonly></textarea
+        >
+        <button onclick="openModal('addNameModal')">Agregar Nombre</button>
+        <button onclick="openModal('removeNameModal')">Quitar Nombre</button>
+        <button id="saveButton">Guardar en archivo</button>
+
+        <div id="orderList">
+          <h2>Orden de Salida</h2>
+          <ol id="orderListItems"></ol>
+        </div>
+      </div>
+    </div>
+
+    <div id="addNameModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('addNameModal')">&times;</span>
+        <label for="newName">Nombre:</label>
+        <input type="text" id="newName" />
+        <button onclick="addNameFromModal()">Agregar</button>
+      </div>
+    </div>
+
+    <div id="removeNameModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('removeNameModal')"
+          >&times;</span
+        >
+        <label>Nombres a quitar:</label><br />
+        <div id="namesToRemoveCheckboxes"></div>
+        <button onclick="removeSelectedNames()">Quitar</button>
+      </div>
+    </div>
+
+    <div id="nameModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('nameModal')">&times;</span>
+        <p id="selectedName"></p>
+      </div>
+    </div>
+</div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

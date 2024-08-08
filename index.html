@@ -38,7 +38,7 @@
             marker-end="url(#arrowhead)"
           />
         </svg>
-        <button onclick="rotateCircle()">Girar Círculo</button>
+        <button onclick="rotateCircle()" id="turnAroundCircle">Girar Círculo</button>
       </div>
 
       <div class="list-container">
@@ -52,10 +52,10 @@
           />
           <button>Seleccionar Archivo</button>
         </div>
-        <textarea placeholder="Nombres" id="namesTextarea" readonly></textarea
-        >
-        <button onclick="openModal('addNameModal')">Agregar Nombre</button>
-        <button onclick="openModal('removeNameModal')">Quitar Nombre</button>
+        <textarea placeholder="Nombres" id="namesTextarea" readonly></textarea>
+        
+        <button onclick="openModal('addNameModal')" id="addNameButton">Agregar Nombre</button>
+        <button onclick="openModal('removeNameModal')" id="removeNameButton">Quitar Nombre</button>
         <button id="saveButton">Guardar en archivo</button>
 
         <div id="orderList">
@@ -70,24 +70,22 @@
         <span class="close" onclick="closeModal('addNameModal')">&times;</span>
         <label for="newName">Nombre:</label>
         <input type="text" id="newName" />
-        <button onclick="addNameFromModal()">Agregar</button>
+        <button onclick="addNameFromModal()" id="acceptNameListButton">Agregar</button>
       </div>
     </div>
 
     <div id="removeNameModal" class="modal">
       <div class="modal-content">
-        <span class="close" onclick="closeModal('removeNameModal')"
-          >&times;</span
-        >
+        <span class="close" onclick="closeModal('removeNameModal')">&times;</span>
         <label>Nombres a quitar:</label><br />
         <div id="namesToRemoveCheckboxes"></div>
-        <button onclick="removeSelectedNames()">Quitar</button>
+        <button onclick="removeSelectedNames()" id="removeNameListButton">Quitar</button>
       </div>
     </div>
 
     <div id="nameModal" class="modal">
       <div class="modal-content">
-        <span class="close" onclick="closeModal('nameModal')">&times;</span>
+        <span class="close" onclick="closeModal('nameModal')" id="closeButton">&times;</span>
         <p id="selectedName"></p>
       </div>
     </div>

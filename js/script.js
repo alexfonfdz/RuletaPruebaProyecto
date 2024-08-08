@@ -286,7 +286,7 @@ function closeModal(modalId) {
 
 function addNameFromModal() {
   const newName = document.getElementById("newName").value.trim();
-  if (newName !== "") {
+  if (newName !== "" && newName.length <= 20 && !newName.includes("\n") && !newName.includes("\r") && !newName.includes("\t") && newName.length >= 3) { 
     const namesTextarea = document.getElementById("namesTextarea");
     namesTextarea.value += (namesTextarea.value ? "\n" : "") + newName;
     const names = namesTextarea.value
@@ -294,12 +294,18 @@ function addNameFromModal() {
       .filter((name) => name.trim() !== "");
     updateCircleDivisions(names);
     document.getElementById("newName").value = "";
+    if (document.getElementById("errorMessage")) {
+      document.getElementById("errorMessage").remove();
+    }
     closeModal("addNameModal");
   } else {
     const modalContent = document.querySelector("#addNameModal .modal-content");
+    if (document.getElementById("errorMessage")) {
+      document.getElementById("errorMessage").remove();
+    }
     modalContent.insertAdjacentHTML(
       "beforeend",
-      '<p style="color: red;">Por favor, ingrese un nombre válido.</p>'
+      '<p style="color: red;" id="errorMessage">Por favor, ingrese un nombre válido.</p>'
     );
   }
 }
